@@ -100,6 +100,12 @@ export function ExportOptions({ fid }: ExportOptionsProps) {
           {errorMessage || 'Error exporting data. Please try again.'}
         </p>
       )}
+
+      <div className="mt-8 p-4 bg-[#121620] rounded border border-[#2a3343] text-gray-100">
+        <p className="text-sm text-gray-300 mb-2">
+          Want to learn more about your Farcaster network? Join <span className="text-blue-300 font-semibold">/quotient </span> for early access to Quotient's Farcaster analytics tools.
+        </p>
+      </div>
     </div>
   );
 }
