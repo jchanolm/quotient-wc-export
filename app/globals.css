@@ -3,64 +3,51 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 10, 25, 41;
-  --background-rgb: 255, 255, 255;
-  --primary-blue: 0, 84, 166;
-  --primary-blue-light: 235, 245, 255;
-  --border-color: 226, 232, 240;
+  --blue-primary: #0057ff;
+  --blue-bright: #00a0ff;
+  --text-muted-dark: #aaa;
+  --text-muted-light: #666;
+  --bg-dark: #0a0a10;
+  --bg-light: #f0f0f4;
+  --border-dark: rgba(60, 60, 70, 0.4);
+  --border-light: rgba(60, 60, 70, 0.15);
+}
+
+* {
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-rgb: 10, 25, 41;
-    --primary-blue: 72, 144, 215;
-    --primary-blue-light: 21, 38, 56;
-    --border-color: 30, 41, 59;
+  body {
+    background-color: #0a1020;
+    color: #fff;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-rgb));
-  font-family: Inter, system-ui, -apple-system, sans-serif;
-  -webkit-font-smoothing: antialiased;
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: #eaeaef;
+    color: #111;
+  }
 }
 
-h1 {
-  @apply text-2xl font-medium tracking-tight;
-  color: rgb(var(--primary-blue));
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
-.container {
-  @apply px-4 py-8 max-w-md mx-auto;
+.animate-blink {
+  animation: blink 1s step-end infinite;
 }
 
-.tab {
-  @apply px-4 py-2 font-medium text-sm cursor-pointer border-b-2 border-transparent;
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
 }
 
-.tab.active {
-  color: rgb(var(--primary-blue));
-  border-color: rgb(var(--primary-blue));
-}
-
-.card {
-  @apply rounded-lg p-6 bg-white dark:bg-slate-900 shadow-sm;
-  border: 1px solid rgb(var(--border-color));
-}
-
-.btn-primary {
-  @apply inline-flex items-center justify-center px-4 py-2 rounded-md text-white font-medium;
-  background-color: rgb(var(--primary-blue));
-  transition: all 0.2s ease;
-}
-
-.btn-primary:hover {
-  filter: brightness(1.1);
-}
-
-.btn-primary:focus {
-  @apply outline-none ring-2 ring-offset-2;
-  ring-color: rgba(var(--primary-blue), 0.5);
+.animate-pulse {
+  animation: pulse 1.5s infinite;
 }

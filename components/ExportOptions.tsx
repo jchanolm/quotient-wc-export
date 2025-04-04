@@ -1,4 +1,3 @@
-// components/ExportOptions.tsx
 import { useState } from 'react';
 
 interface ExportOptionsProps {
@@ -7,6 +6,7 @@ interface ExportOptionsProps {
 
 export function ExportOptions({ fid }: ExportOptionsProps) {
   const [isLoading, setIsLoading] = useState(false);
+  const [exportFormat] = useState<'json'>('json');
   const [exportStatus, setExportStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [exportUrl, setExportUrl] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -20,7 +20,7 @@ export function ExportOptions({ fid }: ExportOptionsProps) {
     
     try {
       // Call our export API
-      const response = await fetch(`/api/export/${fid}?format=json`);
+      const response = await fetch(`/api/export/${fid}?format=${exportFormat}`);
       
       if (!response.ok) {
         const errorData = await response.json();
@@ -48,7 +48,7 @@ export function ExportOptions({ fid }: ExportOptionsProps) {
   return (
     <div className="w-full">
       <div className="mb-8">
-        <p className="text-sm text-slate-600 dark:text-slate-400 mb-2">
+        <p className="text-sm text-gray-400 font-mono mb-2">
           Export your casts in JSON format
         </p>
       </div>
@@ -56,7 +56,7 @@ export function ExportOptions({ fid }: ExportOptionsProps) {
       <button
         onClick={handleExportClick}
         disabled={isLoading}
-        className="btn-primary w-full"
+        className="bg-[#0057ff] hover:bg-[#0066ff] transition-colors text-white font-medium py-2 px-4 rounded-md text-sm uppercase tracking-wider font-mono w-full flex items-center justify-center"
       >
         {isLoading ? (
           <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -68,22 +68,26 @@ export function ExportOptions({ fid }: ExportOptionsProps) {
       </button>
       
       {exportStatus === 'success' && exportUrl && (
-        <div className="mt-4 p-3 bg-blue-50 dark:bg-blue-900/20 rounded border border-blue-100 dark:border-blue-800">
-          <p className="text-sm text-blue-800 dark:text-blue-200 mb-2">
+        <div className="mt-4 p-3 bg-[#121620] rounded border border-[#2a3343] text-gray-100">
+          <p className="text-sm text-blue-300 mb-2 font-medium">
             Export complete! Your data is ready.
           </p>
           <a 
             href={exportUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline"
+            className="text-sm font-medium text-blue-400 hover:underline flex items-center"
           >
-            Download your casts
+            <span>Download your casts</span>
+            <svg className="w-3 h-3 ml-1 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+            </svg>
           </a>
         </div>
       )}
+      
       {exportStatus === 'error' && (
-        <p className="mt-3 text-sm text-red-600 dark:text-red-400">
+        <p className="mt-3 text-sm text-red-400">
           {errorMessage || 'Error exporting data. Please try again.'}
         </p>
       )}

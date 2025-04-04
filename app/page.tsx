@@ -35,31 +35,35 @@ export default function Home() {
 
   if (isLoading) {
     return (
-      <div className="flex h-screen items-center justify-center">
-        <svg className="animate-spin h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-        </svg>
+      <div className="flex h-screen items-center justify-center bg-[#0a1020] text-white">
+        <div className="flex flex-col items-center">
+          <div className="mb-4 flex space-x-2 justify-center">
+            <div className="w-2 h-2 rounded-full bg-[#0057ff] animate-pulse"></div>
+            <div className="w-2 h-2 rounded-full bg-[#0057ff] animate-pulse delay-100"></div>
+            <div className="w-2 h-2 rounded-full bg-[#0057ff] animate-pulse delay-200"></div>
+          </div>
+          <p className="text-sm text-gray-400 font-mono">Loading...</p>
+        </div>
       </div>
     );
   }
 
   return (
-    <main className="container">
-      <div className="card">
+    <main className="container px-6 py-8 max-w-md mx-auto bg-[#0a1020] text-white min-h-screen">
+      <div className="bg-[#121620] rounded-lg border border-[#2a3343] p-6 shadow-sm">
         <div className="flex items-center mb-6">
-          <svg className="w-6 h-6 mr-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg className="w-6 h-6 mr-2 text-[#0057ff]" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M12 2L2 7l10 5 10-5-10-5z" />
             <path d="M2 17l10 5 10-5" />
             <path d="M2 12l10 5 10-5" />
           </svg>
-          <h1>Exporter - Built by Quotient, Powered by Neynar</h1>
-        </div>        
+          <h1 className="text-xl font-medium tracking-tight text-blue-300 font-mono">Exporter by Quotient</h1>
+        </div>
         {userData ? (
           <ExportOptions fid={userData.fid} />
         ) : (
           <div className="text-center py-4">
-            <p className="text-sm text-slate-500">Unable to get your casts. Please try again or dc @ruminations</p>
+            <p className="text-sm text-gray-500 font-mono">Unable to get your Farcaster information. Please try again.</p>
           </div>
         )}
       </div>
