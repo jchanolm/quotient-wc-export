@@ -15,11 +15,12 @@ export default function Home() {
         await sdk.actions.ready();
         
         // Access user information from context
-        if (sdk.context?.user) {
+        const context = await sdk.context;
+        if (context?.user) {
           setUserData({
-            fid: sdk.context.user.fid,
-            username: sdk.context.user.username,
-            displayName: sdk.context.user.displayName,
+            fid: context.user.fid,
+            username: context.user.username,
+            displayName: context.user.displayName,
           });
         }
         
