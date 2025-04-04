@@ -1,86 +1,37 @@
+// app/api/export/[fid]/json/route.ts
 import { NextRequest, NextResponse } from 'next/server';
+import { exportUserCasts } from '@/services/export-service';
 
 export async function GET(
   request: NextRequest,
   { params }: { params: { fid: string } }
 ) {
   try {
-    const fid = params.fid;
+    const fid = Number(params.fid);
     
-    // In a real app, you would:
-    // 1. Verify authentication
-    // 2. Fetch data from Farcaster API or your database
-    // 3. Format the data as JSON
+    if (isNaN(fid)) {
+      return NextResponse.json(
+        { error: 'Invalid FID parameter' },
+        { status: 400 }
+      );
+    }
     
-    // For demo purposes, let's create a simple mock JSON dataset
-    const mockJsonData = {
-      user: {
-        fid: fid,
-        username: 'demo_user',
-        displayName: 'Demo User',
-        bio: 'This is a demo export',
-        followers: 150,
-        following: 240,
-      },
-      casts: [
-        {
-          hash: '0x123',
-          timestamp: '2023-01-01T12:00:00Z',
-          text: 'Hello Farcaster world!',
-          reactions: {
-            likes: 5,
-            recasts: 2,
-          },
-          url: 'https://warpcast.com/~/cast/0x123',
-        },
-        {
-          hash: '0x456',
-          timestamp: '2023-01-02T14:30:00Z',
-          text: 'This is interesting',
-          replyTo: '0xabc',
-          reactions: {
-            likes: 3,
-            recasts: 0,
-          },
-          url: 'https://warpcast.com/~/cast/0x456',
-        },
-        {
-          hash: '0x789',
-          timestamp: '2023-01-03T09:15:00Z',
-          text: 'Just sharing some thoughts',
-          reactions: {
-            likes: 12,
-            recasts: 4,
-          },
-          url: 'https://warpcast.com/~/cast/0x789',
-        },
-      ],
-      reactions: [
-        {
-          type: 'like',
-          targetCast: '0xabc',
-          timestamp: '2023-01-04T18:45:00Z',
-          url: 'https://warpcast.com/~/cast/0xabc',
-        },
-        {
-          type: 'recast',
-          targetCast: '0xdef',
-          timestamp: '2023-01-05T11:20:00Z',
-          url: 'https://warpcast.com/~/cast/0xdef',
-        },
-      ],
-    };
-
-    // Set headers for JSON download
-    return NextResponse.json(mockJsonData, {
-      headers: {
-        'Content-Disposition': `attachment; filename="warpcast-data-fid-${fid}.json"`,
-      },
+    // Get query parameters
+    const url = new URL(request.url);
+    const includeReplies = url.searchParams.get('include_replies') !== 'false';
+    
+    // Process the export - always JSON format
+    const downloadUrl = await exportUserCasts(fid, 'json', includeReplies);
+    
+    return NextResponse.json({
+      success: true,
+      url: downloadUrl,
+      message: `Successfully exported casts for FID: ${fid}`
     });
   } catch (error) {
-    console.error('Error generating JSON:', error);
+    console.error('Error processing export:', error);
     return NextResponse.json(
-      { error: 'Failed to generate JSON export' },
+      { error: 'Failed to generate export' },
       { status: 500 }
     );
   }

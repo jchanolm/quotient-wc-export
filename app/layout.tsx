@@ -5,8 +5,8 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Warpcast Data Exporter',
-  description: 'Export your Warpcast data for analysis in CSV or JSON format',
+  title: 'Exporter by Quotient',
+  description: 'Export your Farcaster Casts in JSON format',
 };
 
 export default function RootLayout({
@@ -22,15 +22,15 @@ export default function RootLayout({
           name="fc:frame"
           content={JSON.stringify({
             version: 'next',
-            imageUrl: 'https://your-domain.com/og-image.png', // Replace with your actual OG image URL
+            imageUrl: 'https://your-domain.com/og-image.png', // Replace with actual OG image URL
             button: {
-              title: 'Export Your Data',
+              title: 'Export Your Casts',
               action: {
                 type: 'launch_frame',
-                url: 'https://your-domain.com/', // Replace with your actual domain
-                name: 'Warpcast Data Exporter',
-                splashImageUrl: 'https://your-domain.com/splash.png', // Replace with your splash image URL
-                splashBackgroundColor: '#f5f0ec'
+                url: 'https://your-domain.com/', // Replace with actual domain
+                name: 'Exporter by Quotient',
+                splashImageUrl: 'https://your-domain.com/splash.png', // Replace with splash image URL
+                splashBackgroundColor: '#FFFFFF'
               }
             }
           })}
