@@ -51,6 +51,9 @@ export function ExportOptions({ fid }: ExportOptionsProps) {
         <p className="text-sm text-gray-400 font-mono mb-2">
           Export your casts in JSON format
         </p>
+        <p className="text-sm text-gray-300 font-mono">
+          Your FID: <span className="text-blue-300">{fid}</span>
+        </p>
       </div>
       
       <button
