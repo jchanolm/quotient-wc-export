@@ -1,0 +1,13 @@
+{
+    "frame": {
+      "version": "1",
+      "name": "Warpcast Data Exporter",
+      "iconUrl": "https://your-domain.com/icon.png",
+      "homeUrl": "https://your-domain.com/",
+      "imageUrl": "https://your-domain.com/og-image.png",
+      "buttonTitle": "Export Your Data",
+      "splashImageUrl": "https://your-domain.com/splash.png",
+      "splashBackgroundColor": "#f5f0ec",
+      "webhookUrl": "https://your-domain.com/api/webhook"
+    }
+  }
