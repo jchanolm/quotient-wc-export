@@ -19,18 +19,24 @@ export function ExportOptions({ fid }: ExportOptionsProps) {
     setErrorMessage(null);
     
     try {
-      // Call our export API
-      const response = await fetch(`/api/export/${fid}?format=${exportFormat}`);
+      // Updated URL to use the specified domain
+      const response = await fetch(`https://quotient-wc-export.vercel.app/api/export/${fid}?format=${exportFormat}`, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
       
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || 'Export failed');
+        const errorText = await response.text();
+        console.error('Export error:', errorText);
+        throw new Error(errorText || 'Export failed');
       }
       
       const data = await response.json();
       
-      // Store the export URL
-      setExportUrl(data.url);
+      // Assuming the response contains a URL for download
+      setExportUrl(data.url || data.downloadUrl);
       setExportStatus('success');
     } catch (error) {
       console.error('Export error:', error);
@@ -67,7 +73,7 @@ export function ExportOptions({ fid }: ExportOptionsProps) {
             <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
           </svg>
         ) : null}
-        {isLoading ? 'Exporting...' : 'Go'}
+        {isLoading ? 'Exporting...' : 'Export Casts'}
       </button>
       
       {exportStatus === 'success' && exportUrl && (
