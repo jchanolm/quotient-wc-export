@@ -1,4 +1,3 @@
-// app/api/export/[fid]/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { exportUserCasts } from '@/services/export-service';
 
@@ -7,29 +6,20 @@ export async function GET(
   { params }: { params: { fid: string } }
 ) {
   try {
-    const fid = Number(params.fid);
+    const fid = params.fid;
     
-    if (isNaN(fid)) {
+    if (!fid) {
       return NextResponse.json(
-        { error: 'Invalid FID parameter' },
+        { error: 'Missing FID parameter' },
         { status: 400 }
       );
     }
     
-    // Get query parameters
-    const url = new URL(request.url);
-    const format = (url.searchParams.get('format') || 'json') as 'json' | 'csv';
-    const includeReplies = url.searchParams.get('include_replies') !== 'false';
-    
-    if (format !== 'json' && format !== 'csv') {
-      return NextResponse.json(
-        { error: 'Format must be either "json" or "csv"' },
-        { status: 400 }
-      );
-    }
+    // Always use JSON format and include replies
+    const includeReplies = true;
     
     // Process the export
-    const downloadUrl = await exportUserCasts(fid, format, includeReplies);
+    const downloadUrl = await exportUserCasts(fid);
     
     return NextResponse.json({
       success: true,
