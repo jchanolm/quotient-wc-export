@@ -2,12 +2,12 @@
     "frame": {
       "version": "1",
       "name": "Warpcast Data Exporter",
-      "iconUrl": "https://your-domain.com/icon.png",
-      "homeUrl": "https://your-domain.com/",
-      "imageUrl": "https://your-domain.com/og-image.png",
-      "buttonTitle": "Export Your Data",
-      "splashImageUrl": "https://your-domain.com/splash.png",
-      "splashBackgroundColor": "#f5f0ec",
-      "webhookUrl": "https://your-domain.com/api/webhook"
+      "iconUrl": "https://fc-casts-exporter.usequotient.xyz/icon.png",
+      "homeUrl": "https://fc-casts-exporter.usequotient.xyz",
+      "imageUrl": "fc-casts-exporter.usequotient.xyz/icon.png",
+      "buttonTitle": "Export Your Casts",
+      "splashImageUrl": "fc-casts-exporter.usequotient.xyz/icon.png",
+      "splashBackgroundColor": "#000",
+      "webhookUrl": ""
     }
   }

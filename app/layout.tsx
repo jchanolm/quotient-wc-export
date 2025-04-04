@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Exporter by Quotient',
   description: 'Export your Farcaster Casts in CSV or JSON format',
   other: {
-    'fc:frame': '{"version":"next","imageUrl":"https://farcaster.usequotient.xyz/icon.png","aspectRatio":"3:2","button":{"title":"Export Data","action":{"type":"launch_frame","name":"Farcaster Exporter","url":"https://exporter.usequotient.xyz","splashImageUrl":"https://farcaster.usequotient.xyz/icon.png","splashBackgroundColor":"#0a1020"}}}'
+    'fc:frame': '{"version":"next","imageUrl":"https://fc-casts-exporter.usequotient.xyz/icon.png","aspectRatio":"3:2","button":{"title":"Export Data","action":{"type":"launch_frame","name":"Farcaster Exporter","url":"https://fc-casts-exporter.usequotient.xyz","splashImageUrl":"https://farcaster.usequotient.xyz/icon.png","splashBackgroundColor":"#000"}}}'
   }
 };
 
