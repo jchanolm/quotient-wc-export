@@ -1,17 +1,18 @@
 {
-    "accountAssociation": {
-      "header": "eyJmaWQiOjE5MDAwMCwidHlwZSI6ImN1c3RvZHkiLCJrZXkiOiIweDE2ZjUyZTJiM2FhMTg5N2RhMGMxMzM1MWUzYmIxN2ZlNDIwNTQxYjYifQ",
-      "payload": "eyJkb21haW4iOiJxdW90aWVudC13Yy1leHBvcnQudmVyY2VsLmFwcCJ9"
-    },
-    "frame": {
-      "name": "Casts Exporter by Quotient, Powered by Neynar",
-      "version": "1",
-      "iconUrl": "https://quotient-wc-export.vercel.app/icon.png",
-      "homeUrl": "https://quotient-wc-export.vercel.app",
-      "imageUrl": "https://quotient-wc-export.vercel.app/icon.png",
-      "buttonTitle": "Export your Casts",
-      "splashImageUrl": "https://quotient-wc-export.vercel.app/icon.png",
-      "splashBackgroundColor": "#000",
-      "webhookUrl": "https://quotient-wc-export.vercel.app/api/webhook"
-    }
+  "accountAssociation": {
+    "header": "eyJmaWQiOjE5MDAwMCwidHlwZSI6ImN1c3RvZHkiLCJrZXkiOiIweDEzOTA4NzM0OWE2MjdBOGY3RTQ1MTlCRjk3MDExOWY5M2FiOEI0RGYifQ",
+    "payload": "eyJkb21haW4iOiJxdW90aWVudC13Yy1leHBvcnQudmVyY2VsLmFwcCJ9",
+    "signature": "MHhiZTUwNTkyZTJmY2Y4N2RmNzBjZGJkMmRhNmU0MzFkMGFmYjBkYTQ3NzdkYzQyNWQyZTFkMDg5Yjk1YTMyNmIxNDdjZjIwYjczZDhlZjM4MTIyYTczZmQ1YjNjYzJkZjZmZTE4OGU2ZWUyNmE0NWU3YjllOTg4NGUyNThjNGE3YzFj"
+  },
+  "frame": {
+    "name": "Casts Exporter by Quotient, Powered by Neynar",
+    "version": "1",
+    "iconUrl": "https://quotient-wc-export.vercel.app/icon.png",
+    "homeUrl": "https://quotient-wc-export.vercel.app",
+    "imageUrl": "https://quotient-wc-export.vercel.app/icon.png",
+    "buttonTitle": "Export your Casts",
+    "splashImageUrl": "https://quotient-wc-export.vercel.app/icon.png",
+    "splashBackgroundColor": "#000",
+    "webhookUrl": "https://quotient-wc-export.vercel.app/api/webhook"
   }
+}
