@@ -3,18 +3,16 @@
     "header": "eyJmaWQiOjE5MDAwMCwidHlwZSI6ImF1dGgiLCJrZXkiOiIweDM1M0NBZGFCQTUxNjYyMzQwOGFGMGRiMjdENkE0NzBGYkZCOEMxMzYifQ",
     "payload": "eyJkb21haW4iOiJxdW90aWVudC13Yy1leHBvcnQudmVyY2VsLmFwcCJ9",
     "signature": "/X+z7HGTRN4I0+KLTvfd4x7JRPFIEc5gkcDs8kaKF0gjsOySYZ3Aec/62SVJf8FyYMa2r6XpFPdv7c/UmB813xw="
-  }
-},
-  "frame": {
-    "name": "Export Casts - by Quotient",
+  },
+  "miniapp": {
     "version": "1",
+    "name": "Export Casts - by Quotient",
     "iconUrl": "https://quotient-wc-export.vercel.app/icon.png",
     "homeUrl": "https://quotient-wc-export.vercel.app",
     "imageUrl": "https://quotient-wc-export.vercel.app/icon.png",
     "buttonTitle": "Export your Casts",
     "splashImageUrl": "https://quotient-wc-export.vercel.app/icon.png",
-    "splashBackgroundColor": "#000",
+    "splashBackgroundColor": "#000000",
     "webhookUrl": "https://quotient-wc-export.vercel.app/api/webhook"
   }
 }
-
