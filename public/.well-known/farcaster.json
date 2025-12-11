@@ -1,9 +1,10 @@
 {
   "accountAssociation": {
-    "header": "eyJmaWQiOjE5MDAwMCwidHlwZSI6ImN1c3RvZHkiLCJrZXkiOiIweDEzOTA4NzM0OWE2MjdBOGY3RTQ1MTlCRjk3MDExOWY5M2FiOEI0RGYifQ",
+    "header": "eyJmaWQiOjE5MDAwMCwidHlwZSI6ImF1dGgiLCJrZXkiOiIweDM1M0NBZGFCQTUxNjYyMzQwOGFGMGRiMjdENkE0NzBGYkZCOEMxMzYifQ",
     "payload": "eyJkb21haW4iOiJxdW90aWVudC13Yy1leHBvcnQudmVyY2VsLmFwcCJ9",
-    "signature": "MHhiZTUwNTkyZTJmY2Y4N2RmNzBjZGJkMmRhNmU0MzFkMGFmYjBkYTQ3NzdkYzQyNWQyZTFkMDg5Yjk1YTMyNmIxNDdjZjIwYjczZDhlZjM4MTIyYTczZmQ1YjNjYzJkZjZmZTE4OGU2ZWUyNmE0NWU3YjllOTg4NGUyNThjNGE3YzFj"
-  },
+    "signature": "/X+z7HGTRN4I0+KLTvfd4x7JRPFIEc5gkcDs8kaKF0gjsOySYZ3Aec/62SVJf8FyYMa2r6XpFPdv7c/UmB813xw="
+  }
+},
   "frame": {
     "name": "Export Casts - by Quotient",
     "version": "1",
@@ -16,3 +17,4 @@
     "webhookUrl": "https://quotient-wc-export.vercel.app/api/webhook"
   }
 }
+
